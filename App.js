@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, View, StatusBar, Platform } from "react-native";
+import AppHeader from "./components/AppHeader";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container,  backgroundColor: "#151923" }}>
+      <AppHeader />
     </View>
   );
 }
@@ -10,6 +12,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   marginTop: StatusBar.currentHeight,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 44,
   },
 });
