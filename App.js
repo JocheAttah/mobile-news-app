@@ -1,9 +1,10 @@
 import { StyleSheet, View, StatusBar, Platform } from "react-native";
+import Context from "./api/Context";
 import AppHeader from "./components/AppHeader";
 
-export default function App() {
+function App() {
   return (
-    <View style={{...styles.container,  backgroundColor: "#151923" }}>
+    <View style={{ ...styles.container, backgroundColor: "#151923" }}>
       <AppHeader />
     </View>
   );
@@ -15,3 +16,11 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 44,
   },
 });
+
+export default () => {
+  return (
+    <Context>
+      <App />
+    </Context>
+  );
+};

@@ -1,14 +1,15 @@
-import { StyleSheet, View, useWindowDimensions } from "react-native";
-import React from "react";
+import { StyleSheet, useWindowDimensions } from "react-native";
+import React, { useContext } from "react";
 import { TabView, SceneMap } from "react-native-tab-view";
 import DiscoverScreen from "../screens/DiscoverScreen";
 import NewsScreen from "../screens/NewsScreen";
 import TopNavigation from "../components/TopNavigation";
+import { NewsContext } from "../api/Context";
 
 const AppHeader = () => {
   const layout = useWindowDimensions();
 
-  const [index, setIndex] = React.useState(0);
+  const { index, setIndex } = useContext(NewsContext);
   const [routes] = React.useState([
     { key: "first", title: "Discover" },
     { key: "second", title: "All News" },
